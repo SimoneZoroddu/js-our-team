@@ -41,3 +41,25 @@ const teamMembers = [
 
 const rowEl = document.querySelector('.row')
 rowEl.innerHTML = renderMarkup(teamMembers)
+
+
+const formEl = document.querySelector('.form')
+const nameFieldEl = document.querySelector('.nameField')
+const roleFieldEl = document.querySelector('.roleField')
+const emailFielEl = document.querySelector('.emailFiel')
+const imgFieldEl = document.querySelector('.imgField')
+
+
+formEl.addEventListener('submit', function (e) {
+  e.preventDefault()
+  const name = nameFieldEl.value
+  //console.log(name);
+  const role = roleFieldEl.value
+  const email = emailFielEl.value
+  const img = imgFieldEl.value
+  teamMembers.push({name, role, email, img})
+  //console.log({name, role, email, img});
+  rowEl.innerHTML = renderMarkup(teamMembers)
+})
+
+//console.log(teamMembers);
