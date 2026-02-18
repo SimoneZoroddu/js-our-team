@@ -30,6 +30,10 @@ function renderMarkup(arrayObject) {
     return markupEl
 }
 
+/**
+ * # Render a new Object
+ * Create a new Object with people input without create a new refresh by all rendereMarkup
+ */
 function renderNewMarkup() {
     const name = nameFieldEl.value
     //console.log(name);

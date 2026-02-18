@@ -64,7 +64,7 @@ const inputEl = document.querySelectorAll('input')
 for (let i = 0; i < inputEl.length; i++) {
   const singleInput = inputEl[i];
   singleInput.addEventListener('keypress', function (e) {
-    if (e.key === "Enter") {
+    if (e.key === "Enter") {  // questo if e da mettere subito per dire che l evento (in questo caso keypress.. pressione del tasto)é uguale a 'Enter' allora si applicano le regole sotto
       e.preventDefault()
       console.log('funziona con l enter');
 
@@ -77,3 +77,18 @@ for (let i = 0; i < inputEl.length; i++) {
     }
   })
 }
+
+
+const button_addEl = document.querySelector('.button_add')
+
+button_addEl.addEventListener('click', function () {
+  //console.log('funziona il click');
+  if (formEl.classList.contains('d-none')){
+    //console.log('e un blocco');
+    formEl.classList.remove('d-none')
+    button_addEl.innerHTML = 'Reclick for hide all'
+  } else {
+    formEl.classList.add('d-none')
+    button_addEl.innerHTML = 'Want to join our team? Press here'
+}
+})
