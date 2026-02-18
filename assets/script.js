@@ -38,3 +38,6 @@ const teamMembers = [
     img: "img/female3.png"
   }
 ];
+
+const rowEl = document.querySelector('.row')
+rowEl.innerHTML = renderMarkup(teamMembers)
