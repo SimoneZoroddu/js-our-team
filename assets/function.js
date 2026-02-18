@@ -5,11 +5,11 @@ console.log('function');
  * @returns markupEl
  */
 function renderMarkup(arrayObject) {
-  let markupEl = ''
+    let markupEl = ''
     for (let i = 0; i < arrayObject.length; i++) {
-      const member = arrayObject[i];
-      const { name, role, email, img } = member
-      const markup = `
+        const member = arrayObject[i];
+        const { name, role, email, img } = member
+        const markup = `
       <div class="card text-white border-0 rounded-0" style="max-width: 540px;">
         <div class="row p-4 text-center">
           <div class="col-md-4 bg-black p-0 m-0">
@@ -25,7 +25,18 @@ function renderMarkup(arrayObject) {
         </div>
       </div>
       `
-      markupEl += markup
+        markupEl += markup
     }
-  return markupEl
+    return markupEl
+}
+
+function renderNewMarkup() {
+    const name = nameFieldEl.value
+    //console.log(name);
+    const role = roleFieldEl.value
+    const email = emailFieldEl.value
+    const img = imgFieldEl.value
+    /* teamMembers.push({name, role, email, img}) */ //unshift nel caso volessi metterlo allo start
+    //console.log({name, role, email, img});
+    rowEl.innerHTML += renderMarkup([{ name, role, email, img }])
 }

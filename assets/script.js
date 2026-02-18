@@ -46,20 +46,34 @@ rowEl.innerHTML = renderMarkup(teamMembers)
 const formEl = document.querySelector('.form')
 const nameFieldEl = document.querySelector('.nameField')
 const roleFieldEl = document.querySelector('.roleField')
-const emailFielEl = document.querySelector('.emailFiel')
+const emailFieldEl = document.querySelector('.emailFiel')
 const imgFieldEl = document.querySelector('.imgField')
 
 
-formEl.addEventListener('submit', function (e) {
+formEl.addEventListener('submit', (e) => {
   e.preventDefault()
-  const name = nameFieldEl.value
-  //console.log(name);
-  const role = roleFieldEl.value
-  const email = emailFielEl.value
-  const img = imgFieldEl.value
-  teamMembers.push({name, role, email, img})
-  //console.log({name, role, email, img});
-  rowEl.innerHTML = renderMarkup(teamMembers)
+  renderNewMarkup()
 })
 
 //console.log(teamMembers);
+
+// prova con trigger with keypress
+// funziona ma lo mette all inizio invece con add lo mette alla fine
+const inputEl = document.querySelectorAll('input')
+
+for (let i = 0; i < inputEl.length; i++) {
+  const singleInput = inputEl[i];
+  singleInput.addEventListener('keypress', function (e) {
+    if (e.key === "Enter") {
+      e.preventDefault()
+      console.log('funziona con l enter');
+
+      const name = nameFieldEl.value
+      const role = roleFieldEl.value
+      const email = emailFieldEl.value
+      const img = imgFieldEl.value
+
+      rowEl.insertAdjacentHTML("afterbegin", renderMarkup([{ name, role, email, img }]))
+    }
+  })
+}
